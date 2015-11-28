@@ -1,4 +1,4 @@
-FactoryGirl.create :user, email: 'eviljojo22@hotmail.com', is_admin: true
+FactoryGirl.create :user, email: 'eviljojo22@hotmail.com', password: 'eviljojo22@hotmail.com', is_admin: true
 FactoryGirl.create :user, email: 'admin@admin.com', password: 'admin@admin.com', is_admin: true
 
 10.times { FactoryGirl.create :user }
