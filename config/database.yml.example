@@ -1,0 +1,12 @@
+development: &development
+  adapter: postgresql
+  encoding: utf8
+  database: xchat
+  username: jonathan
+  pool: 8
+
+test:
+  <<: *development
+
+production:
+  <<: *development

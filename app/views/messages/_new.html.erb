@@ -1,0 +1,5 @@
+<%= simple_form_for Message.new, url: room_messages_path(@room), remote: true,authenticity_token: true do |f| %>
+	<%= f.input :content, as: :string %>
+	<%= f.input :media %>
+	<%= f.button :submit, data: { disable_with: 'Sending...' } %>
+<% end %>

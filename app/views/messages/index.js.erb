@@ -1,0 +1,9 @@
+<% if @messages.size > 0 %>
+	if(window.currentRoom.canUpdateMessages(<%= params[:last_message_id] %>)){
+		window.currentRoom.lastMessageId = <%= @messages.last.id %>;
+		$('.messages').append('<%= j render(partial: '/messages/message', collection: @messages) %>');
+		$('.messages').scrollTop($('.messages')[0].scrollHeight);
+	}
+<% end %>
+
+$('.participants').html('<%= j render(partial: '/rooms/participant', collection: @room.participants_not_banned) %>');

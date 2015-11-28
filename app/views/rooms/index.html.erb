@@ -1,0 +1,53 @@
+<div class="row">
+
+	<h2>Search room</h2>
+
+	<div class="col-md-6 col-md-offset-3">
+
+		<%= bootstrap_form_tag url: rooms_path, method: :get, remote: true, html: { class: 'auto-submit'} do |f| %>
+
+			<%= f.text_field :name, value: params[:name], label: 'Name of the room' %>
+
+			<%= f.submit 'Search' %>
+
+		<% end %>
+
+		<div class="loader hidden">
+			Searching...
+		</div>
+
+		<ul class="results">
+			<%= render partial: 'room', collection: @rooms %>
+		</ul>
+
+	</div>
+
+	<div class="clearfix"></div>
+
+	<h2>Create a new room</h2>
+
+	<div class="col-md-6 col-md-offset-3">
+
+		<%= simple_form_for @room, url: rooms_path do |f| %>
+
+			<%= f.input :name %>
+
+			<%= f.button :submit %>
+
+		<% end %>
+
+	</div>
+
+	<div class="clearfix"></div>
+
+	<h2>My rooms</h2>
+
+	<div class="col-md-6 col-md-offset-3">
+
+		<ul class="results">
+			<%= render partial: 'room', collection: @current_user.rooms %>
+		</ul>
+
+	</div>
+
+</div>

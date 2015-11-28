@@ -1,0 +1,25 @@
+<div class="message message-id-<%= message.id %>">
+	<div class="clearfix">
+		<div class="image">
+			<%= image_tag message.user.media.url(:thumb) %>	
+		</div>	
+		<div class="content">
+			<div class="clearfix">
+				<span class="username"><%= message.user.username %></span>
+				<span class="date"><%= l message.created_at, format: '%Hh%M' %></span>
+			</div>
+			<% if message.content.present? %>
+			<p>
+				<%= message.content %>	
+			</p>
+			<% end %>
+			<% if message.media.present? %>
+				<% if message.media_is_image? %>
+					<%= image_tag message.media.url(:medium) %>
+				<% else %>
+					<%= link_to 'Download the attachment', message.media.url, target: '_blank' %>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+</div>

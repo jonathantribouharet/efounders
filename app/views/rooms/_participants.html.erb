@@ -1,0 +1,7 @@
+<div class="visible-md visible-lg">
+	<h3>Participants</h3>
+
+	<ul class="participants">
+		<%= render partial: 'participant', collection: @room.participants_not_banned %>
+	</ul>	
+</div>

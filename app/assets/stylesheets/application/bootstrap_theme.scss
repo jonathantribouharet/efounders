@@ -1,0 +1,83 @@
+$color-gray: #bbb;
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+h1,h2{
+	text-align: center;
+}
+
+.center{
+	text-align: center;
+}
+
+.results{
+	margin-top: 10px;
+}
+
+.messages, .participants{
+	height: 450px;
+	overflow-y: scroll;
+}
+
+.message{
+	margin-bottom: 10px;
+	$image-size: 30px;
+
+	.image, .content{
+		float: left;
+	}
+	.content{
+		margin-left: 15px;
+		width: calc(100% - #{$image-size} - 15px);
+	}
+	.image img{
+		width: $image-size;
+		height: $image-size;
+		border-radius: $image-size / 2;
+	}
+	.username{
+		line-height: $image-size;
+		height: $image-size;
+		font-weight: bold;
+		margin-let: 7px;
+	}
+	.date{
+		line-height: $image-size;
+		height: $image-size;
+		float: right;
+		color: $color-gray;
+		font-size: 12px
+	}
+}
+
+.participants{
+	$image-size: 30px;
+	list-style: none;
+
+	.participant{
+		margin-bottom: 5px;
+
+		&:before{
+			font-size: 20px;
+			content: "•";
+		    color: white;
+		}
+
+		&.active:before{
+			color: green;
+		}
+	}
+
+	img{
+		width: $image-size;
+		height: $image-size;
+		border-radius: $image-size / 2;
+	}
+	.username{
+		line-height: $image-size;
+		height: $image-size;
+		margin-left: 10px;
+		font-size: 13px;
+	}
+}
