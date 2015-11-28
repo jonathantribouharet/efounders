@@ -1,6 +1,9 @@
 <%= content_for :javascript do %>
 <script type="text/javascript">
 	window.currentRoom = new Room('<%= room_messages_url(@room) %>');
+	<% if @messages.size > 0 %>
+		window.currentRoom.lastMessageId = <%= @messages.last.id %>;
+	<% end %>
 	window.currentRoom.update();
 </script>
 <% end %>
